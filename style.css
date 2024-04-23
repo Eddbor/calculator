@@ -16,21 +16,45 @@ body{
     padding: 10px 10px;
     border-radius: 10px;
     margin-top: 50px;
+    animation: neonBor 1s ease-in-out infinite alternate;
+}
+
+@keyframes neonBor {
+    from{
+        border: solid 4px rgb(200, 100, 200);
+    }
+    to {
+        border: solid 4px rgb(15, 5, 15);
+    }
 }
 
 .screen{
     background-color: rgb(100, 5, 100);
-    border: solid 4px rgb(25, 5, 25);
     display: flex;
     flex: 1 1;
     margin: 5px 5px;
     padding: 0px 10px;
     margin-bottom: 20px;
-    color: rgb(20, 5, 20);
     font-weight: bolder;
     font-size: 50px;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    animation: neon3 1s ease-in-out infinite alternate;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(125, 125, 125);
+}
+
+@keyframes neon3 {
+    from{
+        color: rgb(0, 0, 0);
+
+        border: solid 4px rgb(200, 100, 200);
+    }
+    to {
+        color: rgb(255, 255, 255);
+
+        border: solid 4px rgb(15, 5, 15);
+    }
 }
 
 .digi{
@@ -53,11 +77,75 @@ body{
     flex: 1 1;
 }
 
+.col{
+    animation: neon 1s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from{
+        text-shadow:
+        0 0 20px rgb(200, 100, 200),
+        0 0 50px rgb(200, 100, 200),
+        0 0 15px rgb(250, 5, 100),
+        0 0 25px rgb(250, 5, 100),
+        0 0 35px rgb(50, 5, 50),
+        0 0 45px rgb(50, 5, 50);
+
+        color: rgb(50, 5, 50);
+
+        border: solid 4px rgb(200, 100, 200);
+    }
+    to {
+        text-shadow:
+        0 0 40px rgb(150, 50, 100),
+        0 0 10px rgb(150, 50, 100),
+        0 0 30px rgb(250, 5, 100),
+        0 0 50px rgb(250, 5, 100),
+        0 0 70px rgb(50, 5, 50),
+        0 0 90px rgb(50, 5, 50);
+
+        color: rgb(200, 100, 200);
+
+        border: solid 4px rgb(15, 5, 15);
+    }
+}
+
+.colnumb{
+    animation: neon2 1s ease-in-out infinite alternate;
+}
+
+@keyframes neon2 {
+    from{
+        text-shadow: 
+        0 0 40px rgb(150, 50, 100),
+        0 0 10px rgb(150, 50, 100),
+        0 0 30px rgb(250, 5, 100),
+        0 0 50px rgb(250, 5, 100),
+        0 0 70px rgb(50, 5, 50),
+        0 0 90px rgb(50, 5, 50);
+
+        color: rgb(200, 100, 200);
+
+        border: solid 4px rgb(200, 100, 200);
+    }
+    to {
+        text-shadow: 
+        0 0 20px rgb(200, 100, 200),
+        0 0 50px rgb(200, 100, 200),
+        0 0 15px rgb(250, 5, 100),
+        0 0 25px rgb(250, 5, 100),
+        0 0 35px rgb(50, 5, 50),
+        0 0 45px rgb(50, 5, 50);
+
+        color: rgb(50, 5, 50);
+
+        border: solid 4px rgb(15, 5, 15);
+    }
+}
+
 .number{
-    border: solid 4px rgb(25, 5, 25);
     display: flex;
     flex: 1 1;
-    color: rgb(20, 5, 20);
     font-weight: bolder;
     font-size: 50px;
     justify-content: center;
@@ -70,7 +158,6 @@ body{
     border: solid 4px rgb(25, 5, 25);
     display: flex;
     flex: 1 1;
-    color: rgb(20, 5, 20);
     font-weight: bolder;
     font-size: 50px;
     justify-content: center;
@@ -83,7 +170,6 @@ body{
     border: solid 4px rgb(25, 5, 25);
     display: flex;
     flex: 2 1;
-    color: rgb(20, 5, 20);
     font-weight: bolder;
     font-size: 50px;
     justify-content: center;

@@ -4,11 +4,28 @@ let screen = document.querySelector('.screen')
 let del = document.querySelector('.del')
 let equal = document.querySelector('#equal')
 let clear = document.querySelector('#clear')
+let dot = document.querySelector('#dot')
+
+document.addEventListener('keydown' , (e) => {
+  if(e.key == '.'){
+    dotfunc()
+  }else if(e.key == 'Backspace'){
+    delfunc()
+  }else if(e.key == 'Enter'){
+    equalfunc()
+  }else if(e.key >= 0 && e.key <= 9){
+    screen.textContent += e.key
+  }else if(e.key == '/' || e.key == '-' || e.key == '+'){
+    screen.textContent += ` ${e.key} `
+  }else if(e.key == '*'){
+    screen.textContent += ` x `
+  }
+})
 
 btn.forEach(function(scrtext){
   scrtext.addEventListener("click", () => {
     if(screen.textContent.length >= 20){
-      screen.textContent += ''
+      return
     }else{
       screen.textContent += `${scrtext.textContent.toLowerCase()}`;
     }
@@ -17,7 +34,7 @@ btn.forEach(function(scrtext){
 
 btnsim.forEach(function(scrtext){
   scrtext.addEventListener("click", () => {
-    if(screen.textContent.length >= 25){
+    if(screen.textContent.length >= 20){
       screen.textContent += ''
     }else{
       screen.textContent += ` ${scrtext.textContent.toLowerCase()} `;
@@ -25,7 +42,34 @@ btnsim.forEach(function(scrtext){
   })
 })
 
+dot.addEventListener('click', () => {
+  dotfunc()
+})
+
 del.addEventListener("click", () => {
+  delfunc()
+})
+
+equal.addEventListener("click", () => {
+  equalfunc()
+})
+
+clear.addEventListener('click', () => {
+  screen.textContent = ''
+})
+
+//FUNCTIONS
+
+function dotfunc(){
+  let arrScreen = screen.textContent.split(' ')
+  if(arrScreen[arrScreen.length-1].includes('.')){
+    return
+  }else{
+    screen.textContent += `${dot.textContent.toLowerCase()}`
+  }
+}
+
+function delfunc(){
   let arrScreen = [...screen.textContent]
   if (screen.textContent == 'ruo sseddog sah nekasrof su lla'){
     return
@@ -37,9 +81,9 @@ del.addEventListener("click", () => {
   }
   let joinArrScreen = arrScreen.join('')
   screen.textContent = joinArrScreen
-})
+}
 
-equal.addEventListener("click", () => {
+function equalfunc(){
   let arrScreen = screen.textContent.split(' ')
   let numb1 = arrScreen[0]
   let numb2 = arrScreen[2]
@@ -66,8 +110,4 @@ equal.addEventListener("click", () => {
     let joinArrScreen = arrScreen.join(' ')
     screen.textContent = joinArrScreen
   }
-})
-
-clear.addEventListener('click', () => {
-  screen.textContent = ''
-})
+}
